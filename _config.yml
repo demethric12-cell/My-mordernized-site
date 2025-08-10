@@ -1,0 +1,17 @@
+title: Dekpoy Enterprise
+email: you@yourdomain.com
+description: "Fresh farm produce from Dekpoy Enterprise"
+baseurl: "" # leave empty for root
+url: "https://your-vercel-site.vercel.app" # update after deploy
+
+markdown: kramdown
+default_lang: en
+
+collections:
+  products:
+    output: true
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules

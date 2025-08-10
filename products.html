@@ -1,0 +1,29 @@
+---
+layout: default
+title: Shop
+---
+
+<section id="shop" class="container">
+  <h2>Products</h2>
+  <div class="products-grid">
+    {% for product in site.products %}
+      <article class="product-card">
+        <img src="{{ product.image }}" alt="{{ product.title }}">
+        <div class="card-body">
+          <h3>{{ product.title }}</h3>
+          <p class="price">GHS {{ product.price }}</p>
+          <p>{{ product.description }}</p>
+          {% if product.video %}
+            <div class="video-wrap">
+              {% if product.video contains 'youtube' or product.video contains 'youtu.be' %}
+                <iframe width="320" height="200" src="{{ product.video | replace: 'watch?v=', 'embed/' }}" frameborder="0" allowfullscreen></iframe>
+              {% else %}
+                <video controls src="{{ product.video }}"></video>
+              {% endif %}
+            </div>
+          {% endif %}
+        </div>
+      </article>
+    {% endfor %}
+  </div>
+</section>

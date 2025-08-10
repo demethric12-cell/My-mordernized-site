@@ -1,0 +1,28 @@
+---
+layout: default
+title: Home
+---
+
+<section id="hero" class="hero">
+  <div class="hero-inner container">
+    <h2>Fresh produce — from our farm to your table</h2>
+    <p>We grow green pepper, okro, tomatoes, cassava and more. Order fresh and affordable produce delivered locally.</p>
+    <a class="btn" href="/products.html">Shop products</a>
+  </div>
+</section>
+
+<section id="shop-preview" class="container">
+  <h2>Latest products</h2>
+  <div class="products-grid">
+    {% assign latest = site.products | sort: 'date' | reverse | slice: 0,6 %}
+    {% for product in latest %}
+      <article class="product-card">
+        <a href="{{ product.url }}">
+          <img src="{{ product.image }}" alt="{{ product.title }}">
+        </a>
+        <h3>{{ product.title }}</h3>
+        <p class="price">GHS {{ product.price }}</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>
